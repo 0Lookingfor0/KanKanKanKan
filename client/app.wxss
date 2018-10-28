@@ -1,7 +1,28 @@
 /**app.wxss**/
-.container {
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  border-top: 1rpx solid #e6ebef;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+}
+
+.tabbar-item {
+  display: flex;
+  height: 100%;
   align-items: center;
-  box-sizing: border-box;
-} 
+}
+
+.tabbar-icon {
+  height: 40rpx;
+  width: 40rpx;
+  opacity: 0.8;
+}
+
+.tabbar-text {
+  font-size: 32rpx;
+  color: #92a8bc;
+  margin-left: 10rpx;
+}
