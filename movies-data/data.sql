@@ -8,7 +8,7 @@ CREATE TABLE `movies` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-SET @IMAGE_BASE_URL = "YOUR_OWN_IMAGE_BASE_URL"; -- FOR EXAMPLE: https://*****.ap-shanghai.myqcloud.com/
+SET @IMAGE_BASE_URL = "https://movie-1255691973.cos.ap-shanghai.myqcloud.com/"; -- FOR EXAMPLE: https://*****.ap-shanghai.myqcloud.com/
 
 INSERT INTO `movies` (`id`, `image`, `title`, `category`, `description`) VALUES
 (1, CONCAT(@IMAGE_BASE_URL, 'p2517753454.jpg'), '复仇者联盟3：无限战争', '动作 / 科幻 / 奇幻 / 冒险', '《复仇者联盟3：无限战争》是漫威电影宇宙10周年的历史性集结，将为影迷们带来史诗版的终极对决。面对灭霸突然发起的闪电袭击，复仇者联盟及其所有超级英雄盟友必须全力以赴，才能阻止他对全宇宙造成毁灭性的打击。'),

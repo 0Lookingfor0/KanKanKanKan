@@ -8,5 +8,31 @@
 	},
 	"appid": "wxa139c4cb2d9afb51",
 	"projectname": "%E7%9C%8B%E7%9C%8B%E4%BE%83%E4%BE%83%E7%94%B5%E5%BD%B1",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "电影详情页",
+					"pathName": "pages/movie_list/movie_list"
+				}
+			]
+		}
+	}
 }

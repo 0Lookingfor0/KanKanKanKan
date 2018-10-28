@@ -1,4 +1,11 @@
 /**app.wxss**/
+page {
+    background: rgb(247, 249, 251);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .tabbar {
   position: fixed;
   bottom: 0;

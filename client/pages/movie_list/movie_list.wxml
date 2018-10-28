@@ -1,0 +1,11 @@
+<!--client/pages/movie_list/movie_list.wxml-->
+
+<block wx:for='{{movies}}' wx:key='id'>
+  <view class='movie-item'>
+    <image class='movie-image' src='{{item.image}}'></image>
+    <view class='movie-info'>
+      <view class='movie-title'>{{item.title}}</view>
+      <view class='movie-category'>类型：{{item.category}}</view>
+    </view>
+  </view>
+</block>
