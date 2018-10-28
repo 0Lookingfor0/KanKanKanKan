@@ -36,5 +36,6 @@ router.post('/message', controllers.message.post)
 // --- 业务接口 --- //
 // GET  用来获取热门电影列表
 router.get('/movie', controllers.movie.get)
+router.get('/movie/:id', controllers.movie.get)
 
 module.exports = router

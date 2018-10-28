@@ -1,8 +1,8 @@
 <!--index.wxml-->
 
-<image class='movie-image' src='/images/movie.jpg'></image>
+<image class='movie-image' src='{{movie.image}}'></image>
 
-<view class='movie-name'>千与千寻</view>
+<view class='movie-name'>{{movie.title}}</view>
 
 <view class='recommend'>
   <image class='user-avatar' src='/images/user.png'></image> 

@@ -26,6 +26,7 @@ var config = {
 
         // 获取电影列表
         getMovies: `${host}/weapp/movie`
+        
     }
 };
 
