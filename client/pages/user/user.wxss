@@ -1,0 +1,13 @@
+/* client/pages/user/user.wxss */
+.login-tip {
+  margin-top: 250rpx;
+}
+
+.login-btn {
+  margin-top: 200rpx;
+  height: 80rpx;
+  width: 250rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #92a8bc;
+}

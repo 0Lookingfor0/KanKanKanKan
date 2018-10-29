@@ -16,8 +16,8 @@
     <image class='tabbar-icon' src='/images/like.png'></image>
     <view class='tabbar-text'>热门</view>
   </navigator>
-  <view class='tabbar-item'>
+  <navigator class='tabbar-item' url='/pages/user/user' open-type='navigate' hover-class='none'>
     <image class='tabbar-icon' src='/images/user.png'></image>
     <view class='tabbar-text'>我的</view>
-  </view>
+  </navigator>
 </view>

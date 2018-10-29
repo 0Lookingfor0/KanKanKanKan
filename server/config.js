@@ -1,3 +1,5 @@
+let { appSecret } = require('./secret.js')
+
 const CONF = {
     port: '5757',
     rootPathname: '',
@@ -6,10 +8,10 @@ const CONF = {
     appId: 'wxa139c4cb2d9afb51',
 
     // 微信小程序 App Secret
-    appSecret: '',
+    appSecret,
 
     // 是否使用腾讯云代理登录小程序
-    useQcloudLogin: true,
+    useQcloudLogin: false,
 
     /**
      * MySQL 配置，用来存储 session 和用户信息
@@ -30,9 +32,9 @@ const CONF = {
          * 地区简称
          * @查看 https://cloud.tencent.com/document/product/436/6224
          */
-        region: 'ap-guangzhou',
+        region: 'ap-shanghai',
         // Bucket 名称
-        fileBucket: 'qcloudtest',
+        fileBucket: 'movie-1255691973',
         // 文件夹
         uploadFolder: ''
     },
