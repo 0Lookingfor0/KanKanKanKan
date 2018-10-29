@@ -1,5 +1,11 @@
 /**index.wxss**/
 
+.movie-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
 .movie-image {
   width: 540rpx;
   height: 752rpx;
@@ -7,8 +13,8 @@
   margin-bottom: 50rpx;
 }
 
-.movie-name {
-  margin-bottom: 10rpx;
+.movie-title {
+  text-align: center;
 }
 
 .recommend {

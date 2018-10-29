@@ -1,8 +1,10 @@
 <!--index.wxml-->
 
-<image class='movie-image' src='{{movie.image}}'></image>
+<navigator class='movie-wrapper' hover-class='none' url='/pages/movie_detail/movie_detail?id={{movie.id}}'>
+  <image class='movie-image' src='{{movie.image}}'></image>
+  <view class='movie-title'>{{movie.title}}</view>
+</navigator>
 
-<view class='movie-name'>{{movie.title}}</view>
 
 <view class='recommend'>
   <image class='user-avatar' src='/images/user.png'></image> 

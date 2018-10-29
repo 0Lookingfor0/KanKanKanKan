@@ -25,12 +25,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
+					"id": 0,
+					"name": "电影列表",
+					"pathName": "pages/movie_list/movie_list",
+					"query": ""
+				},
+				{
 					"id": -1,
-					"name": "电影详情页",
-					"pathName": "pages/movie_list/movie_list"
+					"name": "电影详情",
+					"pathName": "pages/movie_detail/movie_detail",
+					"query": ""
 				}
 			]
 		}

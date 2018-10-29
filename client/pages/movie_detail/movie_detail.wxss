@@ -1,0 +1,40 @@
+/* client/pages/movie_detail/movie_detail.wxss */
+.wrapper {
+  height: 1000rpx;
+  width: 650rpx;
+  border: 5rpx solid rgba(0, 0, 0, 0.05);
+  border-radius: 10rpx;
+  margin-top: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.movie-image {
+  height: 355rpx;
+  width: 250rpx;
+  position: relative;
+  top: -75rpx;
+}
+
+.movie-title {
+  font-weight: bold;
+  margin-top: -50rpx;
+}
+
+.movie-description {
+  margin: 50rpx 100rpx 0;
+  font-size: 28rpx;
+  line-height: 39rpx;
+  max-height: 400rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  overflow: hidden;
+}
+
+.operate {
+  position: absolute;
+  bottom: 40rpx;
+}

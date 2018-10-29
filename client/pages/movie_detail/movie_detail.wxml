@@ -1,0 +1,16 @@
+<!--client/pages/movie_detail/movie_detail.wxml-->
+<view class='wrapper'>
+  <image class='movie-image' src='{{movie.image}}'></image>
+  <view class='movie-title'>{{movie.title}}</view>
+  <view class='movie-description'>{{movie.description}}</view>
+  <view class='operate'>
+    <view class='operate-item'>
+      <image class='operate-icon' src='/images/eye.png'></image>
+      <view class='operate-text'>查看影评</view>
+    </view>
+    <view class='operate-item'>
+      <image class='operate-icon' src='/images/edit.png'></image>
+      <view class='operate-text'>添加影评</view>
+    </view>
+  </view>
+</view>

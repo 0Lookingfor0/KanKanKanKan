@@ -33,3 +33,32 @@ page {
   color: #92a8bc;
   margin-left: 10rpx;
 }
+
+.operate {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.operate-item {
+  width: 250rpx;
+  height: 75rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid #adbfcd6e;
+  border-radius: 10rpx;
+}
+
+.operate-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}
+
+.operate-text {
+  font-size: 25rpx;
+  line-height: 75rpx;
+  color: #7c97ae;
+}
