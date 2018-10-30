@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "看看侃侃电影"
+  "navigationBarTitleText": "看看侃侃电影",
+  "enablePullDownRefresh": true
 }

@@ -1,0 +1,3 @@
+<!--client/pages/edit_comment/edit_comment.wxml-->
+<view wx:if='{{commentType === "0" }}'>文字</view>
+<view wx:else>音频</view>

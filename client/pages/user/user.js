@@ -18,16 +18,28 @@ Page({
   },
 
   onTapLogin() {
+    wx.showLoading({
+      title: '正在登录',
+    })
     app.login({
       success: () => {
+        wx.hideLoading()
         this.setData({
           userInfo: app.data.userInfo,
           locationAuthType: app.data.locationAuthType
         })
+        wx.showToast({
+          title: '登录成功',
+        })
       },
       error: () => {
+        wx.hideLoading()
         this.setData({
           locationAuthType: app.data.locationAuthType
+        })
+        wx.showToast({
+          title: '登录失败',
+          icon: 'none',
         })
       }
     })

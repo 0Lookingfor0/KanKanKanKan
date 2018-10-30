@@ -47,6 +47,11 @@ Page({
     })
   },
 
+  onPullDownRefresh() {
+    this.getRandomMovie()
+    wx.stopPullDownRefresh()
+  },
+
   onLoad: function (options) {
     this.getRandomMovie()
   },

@@ -19,6 +19,25 @@ Page({
     // },
   },
 
+  onTapAddComment: (event) => {
+    let id = event.currentTarget.dataset.id
+
+    // 询问添加何种类型的影评
+    wx.showActionSheet({
+      itemList: ['文字', '音频'],
+      success: res => {
+        let commentType = res.tapIndex
+
+        wx.navigateTo({
+          url: `/pages/edit_comment/edit_comment?id=${id}&commentType=${commentType}`,
+        })
+      },
+      fail: res => {
+        console.log(res)
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -38,6 +57,9 @@ Page({
             title: '获取失败',
             icon: 'none'
           })
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000)
         }
       },
       fail: result => {
@@ -45,6 +67,9 @@ Page({
           title: '获取失败',
           icon: 'none'
         })
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000)
       }
     })
   },

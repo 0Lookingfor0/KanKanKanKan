@@ -21,13 +21,6 @@ Page({
     //   }
     // ]
   },
-  
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.getMovies()
-  },
 
   getMovies: function () {
     wx.showLoading({
@@ -48,6 +41,9 @@ Page({
             title: '获取失败',
             icon: 'none'
           })
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000)
         }
       },
       fail: result => {
@@ -56,8 +52,23 @@ Page({
           title: '获取失败',
           icon: 'none'
         })
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000)
       }
     })
+  },
+
+  onPullDownRefresh() {
+    this.getMovies()
+    wx.stopPullDownRefresh()
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getMovies()
   },
 
   /**

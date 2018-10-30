@@ -8,7 +8,7 @@
       <image class='operate-icon' src='/images/eye.png'></image>
       <view class='operate-text'>查看影评</view>
     </view>
-    <view class='operate-item'>
+    <view class='operate-item' data-id='{{movie.id}}' bindtap='onTapAddComment'>
       <image class='operate-icon' src='/images/edit.png'></image>
       <view class='operate-text'>添加影评</view>
     </view>
