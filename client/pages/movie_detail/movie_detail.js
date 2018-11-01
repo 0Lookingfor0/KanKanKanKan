@@ -45,7 +45,7 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id
-
+    // 获取电影详情
     qcloud.request({
       url: config.service.getMovies + '/' + id,
       success: result => {

@@ -1,11 +1,41 @@
 // client/pages/edit_comment/edit_comment.js
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    hasContent: false,
+  },
+
+  onBlur: function(event) {
+    if(event.detail.value) {
+      this.setData({
+        hasContent: true
+      })
+    } else {
+      this.setData({
+        hasContent: false
+      })
+    }
+  },
+
+  onSubmit: function(event) {
+    // 若没有评论内容则返回
+    let hasContent = this.data.hasContent
+    if (!hasContent) return
+
+    let commentType = this.data.commentType
+    if (commentType === '0') {
+      let comment_words = event.detail.value.comment_words
+      let movie = this.data.id
+      console.log(comment_words)
+    } else {
+      // 处理音频文件
+    }
   },
 
   /**

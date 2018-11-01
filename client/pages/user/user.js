@@ -17,6 +17,7 @@ Page({
     userInfo: app.data.userInfo,
   },
 
+  // 点击登录
   onTapLogin() {
     wx.showLoading({
       title: '正在登录',

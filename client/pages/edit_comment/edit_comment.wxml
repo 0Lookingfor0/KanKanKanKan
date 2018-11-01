@@ -3,7 +3,13 @@
   <view class='wrapper'>
     <image class='movie-image' src='{{image}}'></image>
     <view class='movie-title'>{{title}}</view>
-  <view class='comment-word' wx:if='{{commentType === "0" }}'>文字</view>
-  <view class='comment-audio' wx:else>音频</view>
+    <form class='comment-form' bindsubmit='onSubmit'>
+    <!-- 这里的 placeholder 不知道怎么居中啊 -->
+      <textarea class='comment-word' wx:if='{{ commentType === "0" }}' placeholder='请输入你的影评...' placeholder-class='comment-placeholder' bindblur='onBlur' name='comment_words' maxlength='512'></textarea>
+
+      <view class='comment-audio' wx:else>音频</view>
+      
+      <button class='form-submit {{hasContent ? "active": ""}}' hover-class='none' form-type='submit'>完成</button>
+    </form>
   </view>
 </view>

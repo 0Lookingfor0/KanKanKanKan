@@ -1,5 +1,5 @@
 <!--client/pages/user/user.wxml-->
-<block wx:if="{{locationAuthType===2 || userInfo }}">
+<block wx:if="{{ userInfo }}">
   <view>登录成功</view>
 </block>
 <block wx:elif="{{locationAuthType===0}}">

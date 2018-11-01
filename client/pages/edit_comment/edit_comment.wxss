@@ -1,1 +1,40 @@
 /* client/pages/edit_comment/edit_comment.wxss */
+
+.wrapper {
+  height: 900rpx;
+}
+
+.comment-form {
+  margin-top: 60rpx;
+  width: 600rpx;
+  height: 400rpx;
+  /* border: 1rpx  solid black; */
+}
+
+.comment-word {
+  width: 560rpx;
+  height: 360rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.comment-placeholder {
+  font-size: 30rpx;
+}
+
+.form-submit {
+  height: 100rpx;
+  width: 750rpx;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-radius: 0rpx;
+  color: rgba(1, 1, 1, 0.3);
+}
+
+.active {
+  color: #fff;
+  background-color: #00bd00;
+}

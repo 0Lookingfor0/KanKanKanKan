@@ -48,6 +48,7 @@ App({
     })
   },
 
+  // 获取用户信息
   getUserInfo({ success, error }) {
     qcloud.request({
       url: config.service.requestUrl,
@@ -69,6 +70,7 @@ App({
   },
 
   checkSession({ success, error }) {
+    // 检查会话，检测用户是否登录
     wx.checkSession({
       success: () => {
         this.getUserInfo({ success, error })
@@ -84,6 +86,7 @@ App({
     qcloud.setLoginUrl(config.service.loginUrl)
     this.checkSession({
       success: ({ userInfo }) => {
+        // 若用户已登录则将用户信息全局化
         this.data.userInfo = userInfo,
         this.data.locationAuthType = AUTHORIZED
       },

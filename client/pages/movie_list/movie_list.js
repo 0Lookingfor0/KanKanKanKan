@@ -23,6 +23,7 @@ Page({
   },
 
   getMovies: function () {
+    // 获取电影列表
     wx.showLoading({
       title: '正在获取列表',
     })

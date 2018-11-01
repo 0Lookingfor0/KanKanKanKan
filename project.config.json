@@ -47,7 +47,7 @@
 				},
 				{
 					"id": 3,
-					"name": "comment",
+					"name": "edit_comment",
 					"pathName": "pages/edit_comment/edit_comment",
 					"query": "commentType=0&id=1&title=千与千寻&image=https://movie-1255691973.cos.ap-shanghai.myqcloud.com/p1606727862.jpg"
 				}

@@ -75,6 +75,7 @@ page {
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: white;
 }
 
 .movie-image {
