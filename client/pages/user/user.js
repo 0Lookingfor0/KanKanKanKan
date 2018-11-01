@@ -13,8 +13,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 为何此处获取的数据，如果没有onShow中的函数， console.log(this.data) 就没有userInfo?
     locationAuthType: app.data.locationAuthType,
     userInfo: app.data.userInfo,
+    navBack: null,
   },
 
   // 点击登录
@@ -25,13 +27,19 @@ Page({
     app.login({
       success: () => {
         wx.hideLoading()
-        this.setData({
-          userInfo: app.data.userInfo,
-          locationAuthType: app.data.locationAuthType
-        })
-        wx.showToast({
-          title: '登录成功',
-        })
+        if(this.data.navBack) {
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 1000)
+        } else {
+          this.setData({
+            userInfo: app.data.userInfo,
+            locationAuthType: app.data.locationAuthType
+          })
+          wx.showToast({
+            title: '登录成功',
+          })
+        }
       },
       error: () => {
         wx.hideLoading()
@@ -50,7 +58,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 是否需要跳转回原来页面
+    let navBack = options.navBack
+    if(navBack) {
+      this.setData({
+        navBack
+      })
+    }
   },
 
   /**
@@ -64,7 +78,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // console.log(this.data)
+    // console.log(app.data)
     this.setData({
+      // userInfo: app.data.userInfo,
       locationAuthType: app.data.locationAuthType
     })
     app.checkSession({

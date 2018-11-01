@@ -1,6 +1,7 @@
 // client/pages/movie_detail/movie_detail.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
+const app = getApp()
 
 Page({
 
@@ -8,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo: app.data.userInfo,
     movie: {},
     // movie: {
     //   id: 1,
@@ -20,24 +22,41 @@ Page({
   },
 
   onTapAddComment: function() {
-    // 询问添加何种类型的影评
-    wx.showActionSheet({
-      itemList: ['文字', '音频'],
-      success: res => {
-        let commentType = res.tapIndex
-        // let id = event.currentTarget.dataset.id
-        let id = this.data.movie.id
-        let image = this.data.movie.image
-        let title = this.data.movie.title
+    // 需要登录
+    let userInfo = this.data.userInfo
+    if (!userInfo) {
+      wx.showModal({
+        title: '提示',
+        content: '您需要登录才能进行操作',
+        success: result => {
+          if(result.confirm) {
+            // 跳转到登录页面
+            wx.navigateTo({
+              url: '/pages/user/user?navBack=true',
+            })
+          }
+        }
+      })
+    } else {
+      // 询问添加何种类型的影评
+      wx.showActionSheet({
+        itemList: ['文字', '音频'],
+        success: res => {
+          let commentType = res.tapIndex
+          // let id = event.currentTarget.dataset.id
+          let id = this.data.movie.id
+          let image = this.data.movie.image
+          let title = this.data.movie.title
 
-        wx.navigateTo({
-          url: `/pages/edit_comment/edit_comment?id=${id}&commentType=${commentType}&image=${image}&title=${title}`,
-        })
-      },
-      fail: res => {
-        console.log(res)
-      }
-    })
+          wx.navigateTo({
+            url: `/pages/edit_comment/edit_comment?id=${id}&commentType=${commentType}&image=${image}&title=${title}`,
+          })
+        },
+        fail: res => {
+          console.log(res)
+        }
+      })
+    }
   },
 
   /**
@@ -87,7 +106,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 更新用户信息
+    app.checkSession({
+      success: ({ userInfo }) => {
+        this.setData({
+          userInfo
+        })
+      }
+    })
   },
 
   /**

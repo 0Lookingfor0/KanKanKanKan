@@ -9,6 +9,7 @@ const AUTHORIZED = 2
 App({
   data: {
     locationAuthType: UNPROMPTED,  // 默认未弹窗询问是否授权
+    userInfo: null,
   },
 
   login({ success, error }) {

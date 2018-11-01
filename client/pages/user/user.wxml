@@ -2,11 +2,11 @@
 <block wx:if="{{ userInfo }}">
   <view>登录成功</view>
 </block>
-<block wx:elif="{{locationAuthType===0}}">
-  <view class='login-tip'>您需要登录才能够查看</view>
-  <button class='login-btn' open-type='getUserInfo' bindgetuserinfo='onTapLogin'>现在登录</button>
-</block>
-<block wx:else>
+<block wx:elif="{{locationAuthType===1}}">
   <view class='login-tip'>您需要登录才能够查看, 请授权</view>
   <button class='login-btn' open-type='openSetting' bindopensetting='onTapLogin'>现在授权</button>
+</block>
+<block wx:else>
+  <view class='login-tip'>您需要登录才能够查看</view>
+  <button class='login-btn' open-type='getUserInfo' bindgetuserinfo='onTapLogin'>现在登录</button>
 </block>
