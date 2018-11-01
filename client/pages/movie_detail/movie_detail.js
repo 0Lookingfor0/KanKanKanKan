@@ -19,17 +19,19 @@ Page({
     // },
   },
 
-  onTapAddComment: (event) => {
-    let id = event.currentTarget.dataset.id
-
+  onTapAddComment: function() {
     // 询问添加何种类型的影评
     wx.showActionSheet({
       itemList: ['文字', '音频'],
       success: res => {
         let commentType = res.tapIndex
+        // let id = event.currentTarget.dataset.id
+        let id = this.data.movie.id
+        let image = this.data.movie.image
+        let title = this.data.movie.title
 
         wx.navigateTo({
-          url: `/pages/edit_comment/edit_comment?id=${id}&commentType=${commentType}`,
+          url: `/pages/edit_comment/edit_comment?id=${id}&commentType=${commentType}&image=${image}&title=${title}`,
         })
       },
       fail: res => {

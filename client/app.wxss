@@ -63,3 +63,28 @@ page {
   line-height: 75rpx;
   color: #7c97ae;
 }
+
+/* 电影详情页和添加影评页 */
+.wrapper {
+  height: 1000rpx;
+  width: 650rpx;
+  border: 5rpx solid rgba(0, 0, 0, 0.05);
+  border-radius: 10rpx;
+  margin-top: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.movie-image {
+  height: 355rpx;
+  width: 250rpx;
+  position: relative;
+  top: -75rpx;
+}
+
+.movie-title {
+  font-weight: bold;
+  margin-top: -50rpx;
+}

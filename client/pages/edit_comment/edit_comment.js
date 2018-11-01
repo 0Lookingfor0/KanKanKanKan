@@ -13,9 +13,14 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id
+    let image = options.image
+    let title = options.title
     let commentType = options.commentType  // 0 为文字，1 为音频
     this.setData({
-      commentType
+      commentType,
+      id,
+      title,
+      image
     })
   },
 
