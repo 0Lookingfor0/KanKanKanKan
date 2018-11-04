@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -50,6 +50,12 @@
 					"name": "edit_comment",
 					"pathName": "pages/edit_comment/edit_comment",
 					"query": "commentType=0&id=1&title=千与千寻&image=https://movie-1255691973.cos.ap-shanghai.myqcloud.com/p1606727862.jpg"
+				},
+				{
+					"id": -1,
+					"name": "comment",
+					"pathName": "pages/comment/comment",
+					"query": "commentType=0&id=10&title=肖申克的救赎&image=https://movie-1255691973.cos.ap-shanghai.myqcloud.com/p480747492.jpg&comment_words=测试&preview=true"
 				}
 			]
 		}

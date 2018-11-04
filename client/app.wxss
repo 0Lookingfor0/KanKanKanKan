@@ -85,7 +85,26 @@ page {
   top: -75rpx;
 }
 
+.movie-image-lt {
+  height: 213rpx;
+  width: 150rpx;
+  position: relative;
+  top: -100rpx;
+}
+
 .movie-title {
   font-weight: bold;
   margin-top: -50rpx;
+}
+
+.movie-title-lt {
+  font-weight: bold;
+  font-size: 36rpx;
+  margin-top: -85rpx;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  width: 84rpx;
+  height: 84rpx;
 }

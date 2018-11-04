@@ -1,0 +1,29 @@
+<!--client/pages/comment/comment.wxml-->
+<view class='wrapper'>
+  <view class='movie-info'>
+    <image class='movie-image-lt' src='{{movie.image}}'></image>
+    <view class='movie-title-lt'>{{movie.title}}</view>
+  </view>
+  <view class='user-info'>
+    <image class='user-avatar' src='{{userInfo.avatarUrl}}'></image>
+    <view class='user-name'>{{userInfo.nickName}}的影评</view>
+  </view>
+  <view class='comment'>
+    <image class='comment-icon' src='/images/comment.png'></image>
+    <view class='comment-content'>{{comment_words}}</view>
+  </view>
+  <!-- 预览界面与详情界面的选项不同 -->
+  <!-- 预览选项 -->
+  <view class='operate' wx:if='{{ preview }}'>
+    <view class='operate-item'>
+      <image class='operate-icon' src='/images/return.png'></image>
+      <view class='operate-text'>重新编辑</view>
+    </view>
+    <view class='operate-item'>
+      <image class='operate-icon' src='/images/post.png'></image>
+      <view class='operate-text'>发布影评</view>
+    </view>
+  </view>
+  <!-- 影评详情选项 -->
+  <view wx:else>评论详情</view>
+</view>

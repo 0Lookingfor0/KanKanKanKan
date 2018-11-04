@@ -31,8 +31,11 @@ Page({
     let commentType = this.data.commentType
     if (commentType === '0') {
       let comment_words = event.detail.value.comment_words
-      let movie = this.data.id
-      console.log(comment_words)
+      let movie = this.data.movie
+      // 跳转到预览页面
+      wx.navigateTo({
+        url: `/pages/comment/comment?commentType=${commentType}&preview=true&id=${movie.id}&image=${movie.image}&title=${movie.title}&comment_words=${comment_words}`,
+      })
     } else {
       // 处理音频文件
     }
@@ -48,9 +51,11 @@ Page({
     let commentType = options.commentType  // 0 为文字，1 为音频
     this.setData({
       commentType,
-      id,
-      title,
-      image
+      movie: {
+        id,
+        title,
+        image
+      }
     })
   },
 
