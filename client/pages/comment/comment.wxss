@@ -25,6 +25,7 @@
   height: 400rpx;
   /* border: 1rpx solid black; */
   display: flex;
+  justify-content: space-between;
 }
 
 .comment-icon {
@@ -33,9 +34,10 @@
 }
 
 .comment-content {
-  margin-left: 50rpx;
+  width: 400rpx;
   font-size: 28rpx;
   line-height: 35rpx;
+  /* border: 1rpx solid black; */
 }
 
 .operate {

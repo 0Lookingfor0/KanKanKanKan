@@ -107,6 +107,7 @@ Page({
    */
   onShow: function () {
     // 更新用户信息
+    // 由于异步机制，页面刚开始显示时用户信息并没有更新且提示登录，需等待一会
     app.checkSession({
       success: ({ userInfo }) => {
         this.setData({
