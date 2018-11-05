@@ -23,9 +23,11 @@ var config = {
         // 上传图片接口
         uploadUrl: `${host}/weapp/upload`,
 
-
         // 获取电影列表
-        getMovies: `${host}/weapp/movie`
+        getMovies: `${host}/weapp/movie`,
+
+        // 添加影评
+        postComment: `${host}/weapp/comment`,
         
     }
 };

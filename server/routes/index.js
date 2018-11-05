@@ -33,9 +33,13 @@ router.get('/message', controllers.message.get)
 router.post('/message', controllers.message.post)
 
 
-// --- 业务接口 --- //
+// --- 电影接口 --- //
 // GET  用来获取热门电影列表
 router.get('/movie', controllers.movie.get)
 router.get('/movie/:id', controllers.movie.get)
+
+// --- 影评接口 --- //
+// POST 用来提交影评
+router.post('/comment', validationMiddleware, controllers.comment.post)
 
 module.exports = router

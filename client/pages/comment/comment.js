@@ -35,7 +35,50 @@ Page({
         comment_words,
         userInfo: app.data.userInfo,
       })
+      wx.setNavigationBarTitle({
+        title: '评论预览',
+      })
     }
+  },
+
+  /**
+   * 发布影评
+   */
+  postComment: function() {
+    let comment_type = this.data.commentType
+    let movie = this.data.movie.id
+    let comment_words = this.data.comment_words
+
+    qcloud.request({
+      url: config.service.postComment,
+      login: true,
+      method: 'POST',
+      data: {
+        comment_type,
+        movie,
+        comment_words
+      },
+      success: result => {
+        let data = result.data
+        if (!data.code) {
+          wx.showToast({
+            title: '发布成功!',
+          })
+        } else {
+          wx.showToast({
+            title: '发布失败！',
+            icon: 'none'
+          })
+        }
+      },
+      fail: result => {
+        console.log(result)
+        wx.showToast({
+          title: '发布失败！',
+          icon: 'none'
+        })
+      }
+    })
   },
 
   /**
@@ -50,11 +93,11 @@ Page({
    */
   onShow: function () {
     // 这个是 DEBUG 用的
-    // setTimeout(() => {
-    //   this.setData({
-    //     userInfo: app.data.userInfo
-    //   })
-    // }, 1000)
+    setTimeout(() => {
+      this.setData({
+        userInfo: app.data.userInfo
+      })
+    }, 1000)
   },
 
   /**

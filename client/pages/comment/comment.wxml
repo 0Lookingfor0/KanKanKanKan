@@ -15,11 +15,11 @@
   <!-- 预览界面与详情界面的选项不同 -->
   <!-- 预览选项 -->
   <view class='operate' wx:if='{{ preview }}'>
-    <view class='operate-item'>
+    <navigator class='operate-item' open-type='navigateBack' hover-class='none'>
       <image class='operate-icon' src='/images/return.png'></image>
       <view class='operate-text'>重新编辑</view>
-    </view>
-    <view class='operate-item'>
+    </navigator>
+    <view class='operate-item' bindtap='postComment'>
       <image class='operate-icon' src='/images/post.png'></image>
       <view class='operate-text'>发布影评</view>
     </view>
