@@ -23,9 +23,13 @@ Page({
 
   // 随机获取电影
   getRandomMovie: function () {
+    wx.showLoading({
+      title: '正在获取',
+    })
     qcloud.request({
       url: config.service.getMovies + '/0',
       success: result => {
+        wx.hideLoading()
         let data = result.data
         if (!data.code) {
           this.setData({
@@ -39,6 +43,7 @@ Page({
         }
       },
       fail: result => {
+        wx.hideLoading()        
         wx.showToast({
           title: '获取信息失败',
           icon: 'none'

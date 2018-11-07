@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -56,6 +56,12 @@
 					"name": "comment",
 					"pathName": "pages/comment/comment",
 					"query": "commentType=0&id=10&title=肖申克的救赎&image=https://movie-1255691973.cos.ap-shanghai.myqcloud.com/p480747492.jpg&comment_words=测试&preview=true"
+				},
+				{
+					"id": 5,
+					"name": "comment_list",
+					"pathName": "pages/comment_list/comment_list",
+					"query": "movie=1"
 				}
 			]
 		}

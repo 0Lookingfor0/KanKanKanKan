@@ -4,10 +4,10 @@
   <view class='movie-title'>{{movie.title}}</view>
   <view class='movie-description'>{{movie.description}}</view>
   <view class='operate'>
-    <view class='operate-item'>
+    <navigator class='operate-item' url='/pages/comment_list/comment_list?movie={{movie.id}}' hover-class='none'>
       <image class='operate-icon' src='/images/eye.png'></image>
       <view class='operate-text'>查看影评</view>
-    </view>
+    </navigator>
     <view class='operate-item' data-id='{{movie.id}}' bindtap='onTapAddComment'>
       <image class='operate-icon' src='/images/edit.png'></image>
       <view class='operate-text'>添加影评</view>

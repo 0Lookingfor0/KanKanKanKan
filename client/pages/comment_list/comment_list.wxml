@@ -1,0 +1,21 @@
+<!--client/pages/comment_list/comment_list.wxml-->
+<block wx:if='{{comments.length === 0}}'>
+  <!-- 没有影评 -->
+  <view class='tip-no-comment'>暂时还没有影评哦 !</view>
+</block>
+
+<view wx:else class='comment-list'>
+  <view wx:for='{{comments}}' wx:key='id' class='comment-item'>
+    <view class='comment-userinfo'>
+      <image class='comment-avatar' src='{{item.avatarUrl}}'></image>
+      <view class='comment-nickName'>{{item.nickName}}</view>
+    </view>
+    <view class='comment-content' wx:if='{{item.comment_type === 0}}'>{{item.comment_words}}</view>
+  </view>
+</view>
+
+<view class='tabbar'>
+  <navigator class='tabbar-item' url='/pages/index/index' open-type='navigate' hover-class='none'>
+    <view class='tabbar-text'>回到首页</view>
+  </navigator>
+</view>

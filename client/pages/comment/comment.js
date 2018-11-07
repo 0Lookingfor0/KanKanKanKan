@@ -64,6 +64,11 @@ Page({
           wx.showToast({
             title: '发布成功!',
           })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/comment_list/comment_list?movie=' + movie,
+            })
+          }, 2000)
         } else {
           wx.showToast({
             title: '发布失败！',
@@ -93,11 +98,12 @@ Page({
    */
   onShow: function () {
     // 这个是 DEBUG 用的
-    setTimeout(() => {
-      this.setData({
-        userInfo: app.data.userInfo
-      })
-    }, 1000)
+    // setTimeout(() => {
+    //   this.setData({
+    //     userInfo: app.data.userInfo
+    //   })
+    //   console.log(this.data.userInfo)
+    // }, 1000)
   },
 
   /**

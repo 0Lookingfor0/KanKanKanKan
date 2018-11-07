@@ -41,5 +41,8 @@ router.get('/movie/:id', controllers.movie.get)
 // --- 影评接口 --- //
 // POST 用来提交影评
 router.post('/comment', validationMiddleware, controllers.comment.post)
+// GET 用来获取影评列表
+router.get('/comment', controllers.comment.get)
+router.get('/comment/:id', controllers.comment.get)
 
 module.exports = router

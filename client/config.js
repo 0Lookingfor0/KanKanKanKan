@@ -28,7 +28,9 @@ var config = {
 
         // 添加影评
         postComment: `${host}/weapp/comment`,
-        
+
+        // 获取影评
+        getComment: `${host}/weapp/comment`,
     }
 };
 
