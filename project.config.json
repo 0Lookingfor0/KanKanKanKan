@@ -61,7 +61,7 @@
 					"id": 5,
 					"name": "comment_list",
 					"pathName": "pages/comment_list/comment_list",
-					"query": "movie=1"
+					"query": "id=1&image=https://movie-1255691973.cos.ap-shanghai.myqcloud.com/p2517753454.jpg&title=复仇者联盟3：无限战争"
 				}
 			]
 		}

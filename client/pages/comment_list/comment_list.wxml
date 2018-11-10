@@ -5,7 +5,7 @@
 </block>
 
 <view wx:else class='comment-list'>
-  <view wx:for='{{comments}}' wx:key='id' class='comment-item'>
+  <view wx:for='{{comments}}' wx:key='id' data-index='{{index}}' bindtap='onTapDetail' class='comment-item'>
     <view class='comment-userinfo'>
       <image class='comment-avatar' src='{{item.avatarUrl}}'></image>
       <view class='comment-nickName'>{{item.nickName}}</view>

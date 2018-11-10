@@ -25,5 +25,14 @@
     </view>
   </view>
   <!-- 影评详情选项 -->
-  <view wx:else>评论详情</view>
+  <view wx:else class='operate'>
+    <view class='operate-item'>
+      <image class='operate-icon' src='/images/favor.png'></image>
+      <view class='operate-text'>收藏影评</view>
+    </view>
+    <view class='operate-item' bindtap='onTapAddComment'>
+      <image class='operate-icon' src='/images/edit.png'></image>
+      <view class='operate-text'>写影评</view>
+    </view>
+  </view>
 </view>

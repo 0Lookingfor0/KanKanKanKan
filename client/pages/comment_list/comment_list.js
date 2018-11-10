@@ -11,12 +11,21 @@ Page({
     comments: [],
   },
 
-  getCommentList(movie) {
+  onTapDetail(event) {
+    let index = event.currentTarget.dataset.index
+    let comment = this.data.comments[index]
+    let movie = this.data.movie
+    wx.navigateTo({
+      url: `/pages/comment/comment?id=${movie.id}&commentType=${comment.comment_type}&image=${movie.image}&title=${movie.title}&comment_words=${comment.comment_words}`,
+    })
+  },
+
+  getCommentList(id) {
     wx.showLoading({
       title: '获取列表',
     })
     qcloud.request({
-      url: config.service.getComment + `?movie=${movie}`,
+      url: config.service.getComment + `?movie=${id}`,
       success: result => {
         wx.hideLoading()
         let data = result.data
@@ -49,9 +58,13 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      movie: options.movie
+      movie: {
+        id: options.id,
+        image: options.image,
+        title: options.title
+      }
     })
-    this.getCommentList(options.movie)
+    this.getCommentList(options.id)
   },
 
   /**
@@ -86,7 +99,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getCommentList(this.data.movie)
+    this.getCommentList(this.data.movie.id)
     wx.stopPullDownRefresh()
   },
 

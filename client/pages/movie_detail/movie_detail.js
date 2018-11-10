@@ -43,7 +43,6 @@ Page({
         itemList: ['文字', '音频'],
         success: res => {
           let commentType = res.tapIndex
-          // let id = event.currentTarget.dataset.id
           let id = this.data.movie.id
           let image = this.data.movie.image
           let title = this.data.movie.title
