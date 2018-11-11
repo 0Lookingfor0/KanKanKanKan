@@ -9,6 +9,38 @@ Page({
    */
   data: {
     hasContent: false,
+    style: '',
+  },
+
+  onTouchStartRecord: function(event) {
+    this.setData({
+      style: 'border: 5rpx solid #00bd00;position: relative;top: -1rpx;'
+    })
+    let recorderManager = wx.getRecorderManager()
+    recorderManager.start({
+      duration: 120000,  // 最长2min
+    })
+    recorderManager.onStart(() => {
+      console.log('recorder start')
+    })
+    recorderManager.onStop((res) => {
+      if(res.duration > 120000) {
+        wx.showToast({
+          title: '最长只能120s哦~',
+          icon: 'none'
+        })
+      }
+      console.log('recorder stop', res)
+      let { tempFilePath } = res
+    })
+  },
+
+  onTouchEndRecord: function(event) {
+    this.setData({
+      style: ''
+    })
+    let recorderManager = wx.getRecorderManager()
+    recorderManager.stop()
   },
 
   onBlur: function(event) {

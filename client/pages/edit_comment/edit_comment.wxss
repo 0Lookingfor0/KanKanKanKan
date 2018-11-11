@@ -38,3 +38,7 @@
   color: #fff;
   background-color: #00bd00;
 }
+
+.comment-audio {
+  margin: 200rpx auto;
+}

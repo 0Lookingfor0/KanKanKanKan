@@ -7,7 +7,10 @@
   <!-- 而且影评太长不方便显示啊...所以只有200 -->
     <textarea class='comment-word' wx:if='{{ commentType === "0" }}' placeholder='请输入你的影评...' placeholder-class='comment-placeholder' bindblur='onBlur' name='comment_words' maxlength='200'></textarea>
 
-    <view class='comment-audio' wx:else>音频</view>
+    <view class='comment-audio operate-item' wx:else bindtouchstart='onTouchStartRecord' bindtouchend='onTouchEndRecord' style='{{style}}'>
+      <image class='operate-icon' src='/images/microphone.png'></image>
+      <view class='operate-text'>按住录音</view>
+    </view>
     
     <button class='form-submit {{hasContent ? "active": ""}}' hover-class='none' form-type='submit'>完成</button>
   </form>
