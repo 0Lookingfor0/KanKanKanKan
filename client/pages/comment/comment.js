@@ -10,6 +10,19 @@ Page({
    */
   data: {
     preview: false, // 是否是预览界面
+    isPlaying: false,  // 是否正在播放音频
+  },
+
+  onTapPlayEnd: function () {
+    let innerAudioContext = this.innerAudioContext
+    if(this.data.isPlaying) {
+      innerAudioContext.stop()
+    } else {
+      innerAudioContext.play()
+    }
+    this.setData({
+      isPlaying: !this.data.isPlaying
+    })
   },
 
   onTapAddComment: function () {
@@ -100,12 +113,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let commentType = options.commentType
+    let commentType = +options.commentType
     let preview = !!options.preview  // boolean化
     let id = options.id
     let image = options.image
     let title = options.title
-    let comment_words = options.comment_words
+    let comment_words = options.comment_words || null
+    let url = decodeURIComponent(options.url) || null  // 解析URL
+    let duration = Math.ceil(options.duration / 1000) || null
+    
+    this.innerAudioContext = wx.createInnerAudioContext()
+    this.innerAudioContext.src = url
+    this.innerAudioContext.onEnded(() => {
+      this.setData({
+        isPlaying: false
+      })
+    })
+
     if (preview) {
       wx.setNavigationBarTitle({
         title: '影评预览',
@@ -115,6 +139,7 @@ Page({
         title: '影评详情',
       })
     }
+    
     this.setData({
       preview,
       commentType,
@@ -124,9 +149,9 @@ Page({
         image
       },
       comment_words,
+      audio: { url, duration},
       userInfo: app.data.userInfo,
     })
-    // console.log(this.data)
   },
 
   /**

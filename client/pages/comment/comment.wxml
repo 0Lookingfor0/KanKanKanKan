@@ -10,7 +10,15 @@
   </view>
   <view class='comment'>
     <image class='comment-icon' src='/images/comment.png'></image>
-    <view class='comment-content'>{{comment_words}}</view>
+    <!-- 文字评论 -->
+    <view class='comment-content' wx:if='{{commentType===0}}'>{{comment_words}}</view>
+    <!-- 录音 -->
+    <view class='comment-content' wx:else>
+      <view class='button-play' bindtap='onTapPlayEnd'>
+        <image class='icon-play' src='/images/{{isPlaying ? "stop" : "play"}}.png'></image>
+        <view class='duration'>{{audio.duration}}s</view>
+      </view>
+    </view>
   </view>
   <!-- 预览界面与详情界面的选项不同 -->
   <!-- 预览选项 -->

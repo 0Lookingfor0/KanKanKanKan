@@ -43,3 +43,23 @@
 .operate {
   margin-top: 150rpx;
 }
+
+.button-play {
+  width: 200rpx;
+  height: 60rpx;
+  border: 2rpx solid rgba(0, 0, 0, 0.048);
+  border-radius: 10rpx;
+  background-color: #dbe2e8;
+  display: flex;
+  align-items: center;
+}
+
+.icon-play {
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 20rpx;
+}
+
+.duration {
+  opacity: 0.8;
+}

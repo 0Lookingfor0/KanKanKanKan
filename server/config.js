@@ -36,7 +36,9 @@ const CONF = {
         // Bucket 名称
         fileBucket: 'movie-1255691973',
         // 文件夹
-        uploadFolder: ''
+        uploadFolder: '',
+        // 添加音频文件类型
+        mimetypes: ['audio/x-aac', 'audio/mpeg', 'video/webm', 'audio/mpeg', 'audio/mp3', 'audio/m4a']
     },
 
     // 微信登录态有效期

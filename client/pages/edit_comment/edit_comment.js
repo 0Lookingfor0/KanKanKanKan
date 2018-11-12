@@ -19,19 +19,36 @@ Page({
     let recorderManager = wx.getRecorderManager()
     recorderManager.start({
       duration: 120000,  // 最长2min
+      format: 'mp3',
     })
-    recorderManager.onStart(() => {
-      console.log('recorder start')
-    })
+    // recorderManager.onStart(() => {
+    //   console.log('recorder start')
+    // })
     recorderManager.onStop((res) => {
-      if(res.duration > 120000) {
+      if(res.duration >= 120000) {
         wx.showToast({
           title: '最长只能120s哦~',
           icon: 'none'
         })
       }
-      console.log('recorder stop', res)
-      let { tempFilePath } = res
+      // console.log('recorder stop', res)
+      let { tempFilePath, duration } = res
+      // wx.saveFile({
+      //   tempFilePath,
+      //   success: result => {
+      //     this.setData({
+      //       audio: result.savedFilePath,
+      //       hasContent: true
+      //     })
+      //   }
+      // })
+      this.setData({
+        audio: {
+          url: tempFilePath,
+          duration
+        },
+        hasContent: true
+      })
     })
   },
 
@@ -60,16 +77,20 @@ Page({
     let hasContent = this.data.hasContent
     if (!hasContent) return
 
+    let movie = this.data.movie
     let commentType = this.data.commentType
     if (commentType === '0') {
       let comment_words = event.detail.value.comment_words
-      let movie = this.data.movie
       // 跳转到预览页面
       wx.navigateTo({
         url: `/pages/comment/comment?commentType=${commentType}&preview=true&id=${movie.id}&image=${movie.image}&title=${movie.title}&comment_words=${comment_words}`,
       })
     } else {
       // 处理音频文件
+      let audio = this.data.audio
+      wx.navigateTo({
+        url: `/pages/comment/comment?commentType=${commentType}&preview=true&id=${movie.id}&image=${movie.image}&title=${movie.title}&url=${encodeURIComponent(audio.url)}&duration=${audio.duration}`,  // 编码后传输，避免URL不正确解析
+      })
     }
   },
 
