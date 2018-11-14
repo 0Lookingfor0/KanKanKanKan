@@ -1,6 +1,11 @@
 // client/pages/edit_comment/edit_comment.js
-var qcloud = require('../../vendor/wafer2-client-sdk/index')
-var config = require('../../config')
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
+const app = getApp()
+
+const UNPROMPTED = 0
+const UNAUTHORIZED = 1
+const AUTHORIZED = 2
 
 Page({
 
@@ -11,6 +16,19 @@ Page({
     hasContent: false,
     style: '',
   },
+
+  // checkAuth: function() {
+  //   wx.getSetting({
+  //     success: res => {
+  //       if (res.authSetting['scope.record']) {
+  //         app.data.authInfo.record = AUTHORIZED
+  //         this.setData({
+  //           authInfo: app.data.authInfo
+  //         })
+  //       }
+  //     },
+  //   })
+  // },
 
   onTouchStartRecord: function(event) {
     this.setData({
@@ -123,7 +141,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 判断是否有录音权限
+    wx.authorize({
+      scope: 'scope.record',
+      success: result => {
+        let authInfo = app.data.authInfo
+        authInfo.record = AUTHORIZED              
+        this.setData({
+          authInfo
+        })
+      },
+      fail: result => {
+        wx.showToast({
+          title: '需要授权',
+          icon: 'none'
+        })
+        let authInfo = app.data.authInfo
+        authInfo.record = UNAUTHORIZED
+        this.setData({
+          authInfo
+        })
+      }
+    })
   },
 
   /**

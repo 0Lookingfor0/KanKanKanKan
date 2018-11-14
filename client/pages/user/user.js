@@ -14,7 +14,7 @@ Page({
    */
   data: {
     // 为何此处获取的数据，如果没有onShow中的函数， console.log(this.data) 就没有userInfo?
-    locationAuthType: app.data.locationAuthType,
+    authInfo: app.data.authInfo,
     userInfo: app.data.userInfo,
     navBack: null,
   },
@@ -34,7 +34,7 @@ Page({
         } else {
           this.setData({
             userInfo: app.data.userInfo,
-            locationAuthType: app.data.locationAuthType
+            authInfo: app.data.authInfo
           })
           wx.showToast({
             title: '登录成功',
@@ -44,7 +44,7 @@ Page({
       error: () => {
         wx.hideLoading()
         this.setData({
-          locationAuthType: app.data.locationAuthType
+          authInfo: app.data.authInfo
         })
         wx.showToast({
           title: '登录失败',
@@ -81,8 +81,7 @@ Page({
     // console.log(this.data)
     // console.log(app.data)
     this.setData({
-      // userInfo: app.data.userInfo,
-      locationAuthType: app.data.locationAuthType
+      authInfo: app.data.authInfo
     })
     app.checkSession({
       success: ({ userInfo }) => {

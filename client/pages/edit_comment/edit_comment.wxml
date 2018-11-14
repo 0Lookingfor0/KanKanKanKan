@@ -7,6 +7,10 @@
   <!-- 而且影评太长不方便显示啊...所以只有200 -->
     <textarea class='comment-word' wx:if='{{ commentType === "0" }}' placeholder='请输入你的影评...' placeholder-class='comment-placeholder' bindblur='onBlur' name='comment_words' maxlength='200'></textarea>
 
+    <view class='comment-audio operate-item' wx:elif='{{ authInfo.record === 1 }}'>
+      <button class='operate-text' type='primary' style='width: 100%;' open-type='openSetting' >现在授权</button>
+    </view>
+
     <view class='comment-audio operate-item' wx:else bindtouchstart='onTouchStartRecord' bindtouchend='onTouchEndRecord' style='{{style}}'>
       <image class='operate-icon' src='/images/microphone.png'></image>
       <view class='operate-text'>按住录音</view>

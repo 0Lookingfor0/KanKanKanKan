@@ -8,7 +8,10 @@ const AUTHORIZED = 2
 
 App({
   data: {
-    locationAuthType: UNPROMPTED,  // 默认未弹窗询问是否授权
+    authInfo: {
+      userInfo: UNPROMPTED,
+      record: UNPROMPTED
+    },  // 默认未弹窗询问是否授权
     userInfo: null,
   },
 
@@ -16,7 +19,7 @@ App({
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo'] === false) {
-          this.data.locationAuthType = UNAUTHORIZED  // 拒绝授权
+          this.data.authInfo.userInfo = UNAUTHORIZED  // 拒绝授权
           wx.showModal({
             title: '提示',
             content: '请授权我们访问您的用户信息',
@@ -24,7 +27,7 @@ App({
           })
           error && error()
         } else {
-          this.data.locationAuthType = AUTHORIZED
+          this.data.userInfo = AUTHORIZED
           this.doQcloudLogin({ success, error })
         }
       }
@@ -89,10 +92,17 @@ App({
       success: ({ userInfo }) => {
         // 若用户已登录则将用户信息全局化
         this.data.userInfo = userInfo,
-        this.data.locationAuthType = AUTHORIZED
+        this.data.authInfo.userInfo = AUTHORIZED
       },
       error: () => {
 
+      }
+    })
+    wx.getSetting({
+      success: result => {
+        if (result.authSetting['scope.record'] === false) {
+          this.data.authInfo.record = UNAUTHORIZED
+        }
       }
     })
   },
