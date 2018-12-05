@@ -1,3 +1,4 @@
+// 安全起见
 let { appSecret } = require('./secret.js')
 
 const CONF = {
@@ -34,7 +35,7 @@ const CONF = {
          */
         region: 'ap-shanghai',
         // Bucket 名称
-        fileBucket: 'movie-1255691973',
+        fileBucket: 'audio-1255691973',
         // 文件夹
         uploadFolder: '',
         // 添加音频文件类型

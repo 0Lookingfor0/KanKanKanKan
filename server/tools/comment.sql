@@ -1,11 +1,12 @@
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` NOT NULL AUTO_INCREMENT,
   `comment_type` boolean NOT NULL DEFAULT false,
   `user` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `movie` int(11) NOT NULL,
+  `movie` int NOT NULL,
   `comment_words` TEXT CHARACTER SET utf8 DEFAULT NULL,
   `audio` varchar(100) DEFAULT NULL,
+  `duration` tinyint DEFAULT NULL,
   `nickName` varchar(100) NOT NULL,
   `avatarUrl` varchar(200) NOT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,

@@ -13,6 +13,23 @@ Page({
     isPlaying: false,  // 是否正在播放音频
   },
 
+  uploadAudio: function(cb) {
+    let audio = this.data.audio
+    wx.uploadFile({
+      url: config.service.uploadUrl,
+      filePath: audio.url,
+      name: 'file',
+      success: result => {
+        const data = JSON.parse(result.data)
+        console.log(result)
+        typeof cb === "function" && cb()
+      },
+      fail: result => {
+
+      }
+    })
+  },
+
   onTapPlayEnd: function () {
     let innerAudioContext = this.innerAudioContext
     if(this.data.isPlaying) {
@@ -68,45 +85,50 @@ Page({
   postComment: function() {
     let comment_type = this.data.commentType  // 这里命名不太好
     let id = this.data.movie.id
-    let comment_words = this.data.comment_words
     let image = this.data.movie.image
     let title = this.data.movie.title
-    qcloud.request({
-      url: config.service.postComment,
-      login: true,
-      method: 'POST',
-      data: {
-        comment_type,
-        movie: id,
-        comment_words
-      },
-      success: result => {
-        let data = result.data
-        if (!data.code) {
-          wx.showToast({
-            title: '发布成功!',
-          })
-          setTimeout(() => {
-            wx.navigateTo({
-              url: `/pages/comment_list/comment_list?id=${id}&image=${image}&title=${title}`,
+    if (comment_type === 0) {
+      let comment_words = this.data.comment_words
+      qcloud.request({
+        url: config.service.postComment,
+        login: true,
+        method: 'POST',
+        data: {
+          comment_type,
+          movie: id,
+          comment_words
+        },
+        success: result => {
+          let data = result.data
+          if (!data.code) {
+            wx.showToast({
+              title: '发布成功!',
             })
-          }, 2000)
-        } else {
-          console.log(result)          
+            setTimeout(() => {
+              wx.navigateTo({
+                url: `/pages/comment_list/comment_list?id=${id}&image=${image}&title=${title}`,
+              })
+            }, 2000)
+          } else {
+            console.log(result)          
+            wx.showToast({
+              title: '发布失败！',
+              icon: 'none'
+            })
+          }
+        },
+        fail: result => {
+          console.log(result)
           wx.showToast({
             title: '发布失败！',
             icon: 'none'
           })
         }
-      },
-      fail: result => {
-        console.log(result)
-        wx.showToast({
-          title: '发布失败！',
-          icon: 'none'
-        })
-      }
-    })
+      })
+    } else {
+      console.log(this.data)
+      this.uploadAudio()
+    }
   },
 
   /**
@@ -122,6 +144,7 @@ Page({
     let url = decodeURIComponent(options.url) || null  // 解析URL
     let duration = Math.ceil(options.duration / 1000) || null
     
+    // 设置音频对象
     this.innerAudioContext = wx.createInnerAudioContext()
     this.innerAudioContext.src = url
     this.innerAudioContext.onEnded(() => {
@@ -130,6 +153,7 @@ Page({
       })
     })
 
+    // 改变导航栏文字
     if (preview) {
       wx.setNavigationBarTitle({
         title: '影评预览',

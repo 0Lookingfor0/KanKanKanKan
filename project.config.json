@@ -4,10 +4,16 @@
 	"miniprogramRoot": "client/",
 	"qcloudRoot": "server/",
 	"setting": {
-		"newFeature": true
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false
 	},
 	"appid": "wxa139c4cb2d9afb51",
 	"projectname": "%E7%9C%8B%E7%9C%8B%E4%BE%83%E4%BE%83%E7%94%B5%E5%BD%B1",
+	"libVersion": "2.4.1",
 	"condition": {
 		"search": {
 			"current": -1,
